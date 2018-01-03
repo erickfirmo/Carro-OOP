@@ -17,55 +17,40 @@ class Carro {
         $this->setCor($c);
         $this->anoFabricacao($a);
         $this->kmRodados($km);
-        $this->anoAtual();
-        $this->anosUso();
-        $this->kmAno();
+        $this->anosUso($a);
+        $this->kmRodados($km);
+        $this->kmAno($km, $a);
         $this->ipva();
-        
-    }
-
-    public function anoAtual() {
-        return $this->ano_atual = date('Y');
     }
     
     public function kmRodados($km) {
        return $this->km_rodados = $km;
     }
 
-    public function kmAno() {
-        return $this->kmRodados() / $this->anosUso();
+    public function kmAno($km, $a) {
+        return $this->km_ano = $this->kmRodados($km) / $this->anosUso($a);
         
     }
 
+    public function anoFabricacao($a) {
+        return $this->ano_fabricacao = $a;
+    }
 
-    public function anosUso() {
+    public function anoAtual() {
+        return $this->ano_atual = date('Y');
+    }
+
+    public function anosUso($a) {
         
-       return $this->anoAtual() - $this->anoFabricacao();
+        return $this->anos_uso = $this->anoAtual()- $this->anoFabricacao($a);
 
     }
+
 
     public function ipva() {
         return $this->pagar_ipva = ($this->anosUso() < 20) ? true : false;
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     public function getAnoAtual() {
         return $this->ano_atual;
@@ -90,8 +75,6 @@ class Carro {
 
    
 
-    public function anoFabricacao($a) {
-        return $this->ano_fabricacao = $a;
-    }
+    
 
 }
