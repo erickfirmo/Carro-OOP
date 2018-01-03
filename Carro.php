@@ -5,18 +5,18 @@ class Carro {
     public $cor;
     public $ano_fabricacao;
 
-    protected $ano_atual;
+    public $ano_atual;
     public $anos_uso;
-    protected $km_rodados;
-    protected $km_ano;
-    protected $pagar_ipva;
+    public $km_rodados;
+    public $km_ano;
+    public $pagar_ipva;
     
 
-    public function Carro($m, $c, $a, $km) {
+    public function __construct($m, $c, $a, $km) {
         $this->setModelo($m);
         $this->setCor($c);
-        $this->setAno($a);
-        $this->setKm($km);
+        $this->anoFabricacao($a);
+        $this->kmRodados($km);
         $this->anoAtual();
         $this->anosUso();
         $this->kmAno();
@@ -24,34 +24,38 @@ class Carro {
         
     }
 
-
-
-    public function setKm($km) {
-        $this->km_rodados = $km;
-    }
-
     public function anoAtual() {
-        $this->ano_atual = date('Y');
+        return $this->ano_atual = date('Y');
+    }
+    
+    public function kmRodados($km) {
+       return $this->km_rodados = $km;
     }
 
     public function kmAno() {
-        $this->anosUso();
-        $this->km_ano = $km_rodados / $anos_uso;
-        return $this->km_ano;
+        return $this->kmRodados() / $this->anosUso();
+        
     }
+
 
     public function anosUso() {
-        $this->anoAtual();
-        $this->anos_uso = $ano_atual - $ano_fabricacao;
-        return $this->anos_uso;
-    }
-
-    protected function Ipva() {
-        $this->anosUso();
-        $this->pagar_ipva = ($anos_uso < 20) ? true : false;
-        return $this->pagar_ipva;
+        
+       return $this->anoAtual() - $this->anoFabricacao();
 
     }
+
+    public function ipva() {
+        return $this->pagar_ipva = ($this->anosUso() < 20) ? true : false;
+
+    }
+
+
+
+
+
+
+
+
 
 
 
@@ -72,7 +76,7 @@ class Carro {
     }
 
     public function setModelo($m) {
-        $this->modelo = $m;
+        return $this->modelo = $m;
 
     }
 
@@ -81,15 +85,13 @@ class Carro {
     }
 
     public function setCor($c) {
-        $this->cor = $c;
+        return $this->cor = $c;
     }
 
-    public function getAno() {
-        return $this->ano_fabricacao;
-    }
+   
 
-    public function setAno($a) {
-        $this->ano_fabricacao = $a;
+    public function anoFabricacao($a) {
+        return $this->ano_fabricacao = $a;
     }
 
 }
