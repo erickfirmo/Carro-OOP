@@ -27,30 +27,20 @@
             box-shadow: 1px 1px 2px #696969;
             padding: 30px;
         }
-
-        button {
-            width: 20%;
-            font-size: 30px;
-        }
     </style>
 </head>
 <body>
 
-<h1>Qual é a Nave?</h1>
+<?php require_once "functions.php"; ?>
+
+<h1>Resultado</h1>
 
         <div class="col-md-3"></div>
         <div class="col-md-6 box">
-            <form action="functions.php" method="post" class="formulario">
-                <label class="col-md-2">Modelo: </label>
-                <input type="text" name="modelo" class="form-control campo col-md-10"></input>
-                <label class="col-md-2">Cor: </label>
-                <input type="text" name="cor" class="form-control campo col-md-10"></input>
-                <label class="col-md-2">Ano: </label>
-                <input type="text" name="ano" class="form-control campo col-md-10"></input>
-                <label class="col-md-2">KMs: </label>
-                <input type="text" name="km" class="form-control campo col-md-10"></input>
-                <a href="resultado.php"><button type="submit" style="btn btn-primary">Enviar</button></a>                
-            </form>
+            <?php print_r($carro); ?>
+
+            <p>otário</p>
+            
         </div>
         <div class="col-md-3"></div>
 
