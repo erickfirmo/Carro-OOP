@@ -49,7 +49,7 @@
                 <input type="text" name="ano" class="form-control campo col-md-10"></input>
                 <label class="col-md-2">KMs: </label>
                 <input type="text" name="km" class="form-control campo col-md-10"></input>
-                <a href="resultado.php"><button type="submit" style="btn btn-primary">Enviar</button></a>                
+                <button type="submit" style="btn btn-primary">Enviar</button>           
             </form>
         </div>
         <div class="col-md-3"></div>

@@ -11,7 +11,6 @@ class Carro {
     public $km_ano;
     public $pagar_ipva;
     
-
     public function __construct($m, $c, $a, $km) {
         $this->setModelo($m);
         $this->setCor($c);
@@ -24,11 +23,12 @@ class Carro {
     }
     
     public function kmRodados($km) {
-       return $this->km_rodados = $km;
+       return $this->km_rodados = number_format($km, 0, ',','.');
+       
     }
 
     public function kmAno($km, $a) {
-        return $this->km_ano = $this->kmRodados($km) / $this->anosUso($a);
+        return $this->km_ano = number_format(($this->kmRodados($km) / $this->anosUso($a)), 0, ',', '.');
         
     }
 
@@ -47,7 +47,13 @@ class Carro {
     }
 
     public function ipva($a) {
-        return $this->pagar_ipva = ($this->anosUso($a) < 20) ? true : false;
+        $this->pagar_ipva = ($this->anosUso($a) < 20) ? true : false;
+
+        if ($this->pagar_ipva == true){
+            return "SIM";
+        }else{
+            return "NÃO";
+        }
 
     }
 
@@ -61,7 +67,6 @@ class Carro {
 
     public function setModelo($m) {
         return $this->modelo = $m;
-
     }
 
     public function getCor() {

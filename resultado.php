@@ -27,19 +27,35 @@
             box-shadow: 1px 1px 2px #696969;
             padding: 30px;
         }
+
+        p {
+            font-family: 'Arial', sans-serif;
+            font-size: 25px;
+        }
     </style>
 </head>
 <body>
-
-<?php require_once "functions.php"; ?>
 
 <h1>Resultado</h1>
 
         <div class="col-md-3"></div>
         <div class="col-md-6 box">
-            <?php print_r($carro); ?>
 
-            <p>otário</p>
+        <?php require_once "Carro.php";
+
+            session_start();
+
+            echo '<p>Modelo: '.$_SESSION['modelo'].'</p><br>';
+            echo '<p>Cor: '.$_SESSION['cor'].'</p><br>';
+            echo '<p>Ano de Fabricação: '.$_SESSION['ano_fabricacao'].'</p><br>';
+            echo '<p>Anos de Uso: '.$_SESSION['anos_uso'].'</p><br>';
+            echo '<p>KMs Rodados: '.$_SESSION['km_Rodados'].'</p><br>';
+            echo '<p>KMs por Ano: '.$_SESSION['km_ano'].'</p><br>';
+            echo '<p>Pagar Ipva: '.$_SESSION['ipva'].'</p>';
+            
+        ?>
+
+
             
         </div>
         <div class="col-md-3"></div>
