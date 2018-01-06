@@ -49,7 +49,7 @@ class Carro {
     }
 
     public function ipva($a) {
-        $this->pagar_ipva = ($this->anosUso($a) < 20) ? true : false;
+        $this->pagar_ipva = ($this->anosUso($a) < 10) ? true : false;
 
         if ($this->pagar_ipva == true){
             return "SIM";
