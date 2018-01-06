@@ -4,12 +4,12 @@ class Carro {
     public $modelo;
     public $cor;
     public $ano_fabricacao;
-
     public $ano_atual;
     public $anos_uso;
     public $km_rodados;
     public $km_ano;
     public $pagar_ipva;
+    public $dados_carro;
     
     public function __construct($m, $c, $a, $km) {
         $this->setModelo($m);
@@ -20,6 +20,8 @@ class Carro {
         $this->kmRodados($km);
         $this->kmAno($km, $a);
         $this->ipva($a);
+        $this->dadosCarro($m, $c, $a, $km);
+
     }
     
     public function kmRodados($km) {
@@ -76,5 +78,34 @@ class Carro {
     public function setCor($c) {
         return $this->cor = $c;
     }
+
+    public function dadosCarro($m, $c, $a, $km) {
+
+        return $this->dados_carro = array(
+            array(
+                'Modelo' => $this->getModelo()
+                ),
+            array(
+                'Cor' => $this->getCor()
+            ),
+            array(
+                'Ano de Fabricação' => $this->anoFabricacao($a)
+            ),
+            array(
+                'Anos de Uso' => $this->anosUso($a)
+            ),
+            array(
+                'Km(s) Rodados' => $this->kmRodados($km)
+            ),
+            array(
+                'Km(s) p/ Ano' => $this->kmAno($km, $a)
+            ),
+            array(
+                'Pagar IPVA' => $this->ipva($a)
+                )
+
+        );
+
+    }   
 
 }

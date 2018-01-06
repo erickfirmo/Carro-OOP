@@ -41,17 +41,18 @@
         <div class="col-md-3"></div>
         <div class="col-md-6 box">
 
-        <?php require_once "Carro.php";
+        <?php
 
             session_start();
 
-            echo '<p>Modelo: '.$_SESSION['modelo'].'</p><br>';
-            echo '<p>Cor: '.$_SESSION['cor'].'</p><br>';
-            echo '<p>Ano de Fabricação: '.$_SESSION['ano_fabricacao'].'</p><br>';
-            echo '<p>Anos de Uso: '.$_SESSION['anos_uso'].'</p><br>';
-            echo '<p>KMs Rodados: '.$_SESSION['km_Rodados'].'</p><br>';
-            echo '<p>KMs por Ano: '.$_SESSION['km_ano'].'</p><br>';
-            echo '<p>Pagar Ipva: '.$_SESSION['ipva'].'</p>';
+            $dados_carro = $_SESSION['dados_carro'];
+
+            foreach ($dados_carro as $dado_carro) {
+                foreach ($dado_carro as $key => $dado) {
+                    echo $key.': '.$dado.'<br>';
+                }
+            }
+
             
         ?>
 

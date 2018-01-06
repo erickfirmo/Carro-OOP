@@ -2,22 +2,18 @@
 
 require_once "Carro.php";
 
-$m = isset($_POST['modelo']) ? ($_POST['modelo']) : null;
-$c = isset($_POST['cor']) ? ($_POST['cor']) : null;
-$a = isset($_POST['ano']) ? ($_POST['ano']) : null;
-$km = isset($_POST['km']) ? ($_POST['km']) : null;
+$modelo = isset($_POST['modelo']) ? ($_POST['modelo']) : null;
+$cor = isset($_POST['cor']) ? ($_POST['cor']) : null;
+$ano = isset($_POST['ano']) ? ($_POST['ano']) : null;
+$quilometros = isset($_POST['km']) ? ($_POST['km']) : null;
 
-$carro = new Carro($m, $c, $a, $km);
+$carro1 = new Carro($modelo, $cor, $ano, $quilometros);
+
 
 session_start();
 
-$_SESSION['modelo'] = $carro->getModelo();
-$_SESSION['cor'] = $carro->getCor();
-$_SESSION['ano_fabricacao'] = $carro->anoFabricacao($a);
-$_SESSION['anos_uso'] = $carro->anosUso($a);
-$_SESSION['km_Rodados'] = $carro->kmRodados($km);
-$_SESSION['km_ano'] = $carro->kmAno($km, $a);
-$_SESSION['ipva'] = $carro->ipva($a);
+$_SESSION['dados_carro'] = $carro1->dadosCarro($modelo, $cor, $ano, $quilometros);
+
 
 header('location: http://localhost/poo-carro/resultado.php');
 
