@@ -15,7 +15,8 @@ session_start();
 $_SESSION['dados_carro'] = $carro1->dadosCarro($modelo, $cor, $ano, $quilometros);
 
 
-header('location: http://localhost/poo-carro/resultado.php');
+header('location: http://'.$_SERVER['HTTP_HOST'].'/resultado.php');
+exit();
 
 ?>
 
