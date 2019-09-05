@@ -5,37 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
-    <style>
-        h1 {
-            padding-top: 60px;
-            text-align: center;
-            margin: 20px auto;
-        }
-
-        .formulario {
-            margin: 0 auto;
-            height: auto;
-        }
-
-        .campo {
-            width: 100%;
-            margin: 16px auto;
-        }
-
-        .box {
-            border: 4px solid #FFF;
-            box-shadow: 1px 1px 2px #696969;
-            padding: 30px;
-            margin: 60px auto 0 auto;
-
-        }
-
-        button.btn.btn-success {
-            font-size: 30px;
-            margin: 30px auto;
-            display: block;
-        }
-    </style>
+    <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
 
