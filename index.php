@@ -28,9 +28,11 @@
             padding: 30px;
         }
 
-        button {
+        button.btn.btn-primary {
             width: 20%;
             font-size: 30px;
+            margin: 30px auto;
+            display: block;
         }
     </style>
 </head>
@@ -42,14 +44,14 @@
         <div class="col-md-6 box">
             <form action="functions.php" method="post" class="formulario">
                 <label class="col-md-2">Modelo: </label>
-                <input type="text" name="modelo" class="form-control campo col-md-10"></input>
+                <input type="text" name="modelo" class="form-control campo col-md-10">
                 <label class="col-md-2">Cor: </label>
-                <input type="text" name="cor" class="form-control campo col-md-10"></input>
+                <input type="text" name="cor" class="form-control campo col-md-10">
                 <label class="col-md-2">Ano: </label>
-                <input type="text" name="ano" class="form-control campo col-md-10"></input>
+                <input type="text" name="ano" class="form-control campo col-md-10">
                 <label class="col-md-2">KMs: </label>
-                <input type="text" name="km" class="form-control campo col-md-10"></input>
-                <button type="submit" style="btn btn-primary">Enviar</button>           
+                <input type="text" name="km" class="form-control campo col-md-10">
+                <button type="submit" class="btn btn-primary">Enviar</button>           
             </form>
         </div>
         <div class="col-md-3"></div>
