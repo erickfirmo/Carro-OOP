@@ -15,7 +15,7 @@
     <div class="row">
         <div class="col-md-3"></div>
             <div class="col-md-6 box">
-                <form action="functions.php" method="post" class="formulario">
+                <form class="formulario" id="formulario">
                     <div class="form-group">
                         <label class="col-md-2 d-none">Modelo </label>
                         <input type="text" name="modelo" class="form-control campo col-md-10" placeholder="Modelo" min="2" max="16" autofocus required>
@@ -27,6 +27,7 @@
                     <div class="form-group">
                         <label class="col-md-2 d-none">Ano </label>
                         <select name="ano" class="form-control campo col-md-10" required>
+
                             <option>Ano</option>
                             <option value="2019">2019</option>
                             <option value="2018">2018</option>
@@ -89,6 +90,31 @@
 <script src="/node_modules/jquery/dist/jquery.js"></script>
 <script src="/node_modules/popper.js/dist/umd/popper.js"></script>
 <script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<script>
+
+    $('#formulario').submit(function(event) {
+    
+        event.preventDefault()
+        
+        var modelo = $('input[name="modelo"]').val()
+        var cor = $('input[name="cor"]').val()
+        var ano = $('input[name="ano"]').val()
+        var km = $('input[name="km"]').val()
+
+        $.ajax({
+            method: 'POST',
+            url: '/functions.php',
+            data: { modelo:modelo, cor:cor, ano:ano, km:km },
+        })
+        .done(function(response) {
+            console.log(response)
+        })
+
+
+        
+    })
+
+</script>
 
 </body>
 </html>
