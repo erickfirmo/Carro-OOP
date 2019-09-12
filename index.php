@@ -98,7 +98,7 @@
         
         var modelo = $('input[name="modelo"]').val()
         var cor = $('input[name="cor"]').val()
-        var ano = $('input[name="ano"]').val()
+        var ano = $('select[name="ano"]').val()
         var km = $('input[name="km"]').val()
 
         $.ajax({
@@ -108,6 +108,7 @@
         })
         .done(function(response) {
             console.log(response)
+            alert(response)
         })
 
 
