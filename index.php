@@ -91,31 +91,34 @@
 <script src="/node_modules/popper.js/dist/umd/popper.js"></script>
 <script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
 <script>
-
+    var carro = null;
     $('#formulario').submit(function(event) {
-    
         event.preventDefault()
-        
         var modelo = $('input[name="modelo"]').val()
         var cor = $('input[name="cor"]').val()
         var ano = $('select[name="ano"]').val()
         var km = $('input[name="km"]').val()
-
         $.ajax({
             method: 'POST',
             url: '/functions.php',
             data: { modelo:modelo, cor:cor, ano:ano, km:km },
         })
         .done(function(response) {
-            console.log(response)
-            alert(response)
-        })
-
-
-        
-    })
-
+            let list = document.createElement('ul');
+            list.className = 'list-group mt-2';
+            list.id = 'lista';
+            carro = JSON.parse(response);
+            box = document.getElementsByClassName('box')[0];
+            box.appendChild(list)
+            document.getElementById('lista').innerHTML += '<li class="list-group-item">Modelo: '+carro['modelo']+'</li>';
+            document.getElementById('lista').innerHTML += '<li class="list-group-item">Cor: '+carro['cor']+'</li>';
+            document.getElementById('lista').innerHTML += '<li class="list-group-item">Ano de Fabricação: '+carro['ano_fabricacao']+'</li>';
+            document.getElementById('lista').innerHTML += '<li class="list-group-item">Kms Rodados: '+carro['km_rodados']+'</li>';
+            document.getElementById('lista').innerHTML += '<li class="list-group-item">Anos de Uso: '+carro['anos_uso']+'</li>';
+            document.getElementById('lista').innerHTML += '<li class="list-group-item">Kms por Ano: '+carro['km_ano']+'</li>';
+            document.getElementById('lista').innerHTML += '<li class="list-group-item">Paga IPVA: '+carro['pagar_ipva']+'</li>';
+        });
+    });
 </script>
-
 </body>
 </html>
