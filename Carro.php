@@ -20,7 +20,7 @@ class Carro {
     }
     
     public function setKmRodados($km) {
-       $this->km_rodados = number_format($km, 0, ',','.');
+       $this->km_rodados = $km;
     }
 
     public function getKmRodados() {
@@ -28,7 +28,7 @@ class Carro {
      }
 
     public function setKmAno() {
-        $this->km_ano = number_format(($this->getKmRodados() / $this->getAnosUso()), 0, ',', '.'); 
+        $this->km_ano = $this->getKmRodados() / $this->getAnosUso(); 
     }
 
     public function getKmAno() {
@@ -79,13 +79,13 @@ class Carro {
     public function dadosCarro() {
 
         return [
-            'Modelo' => $this->getModelo(),
-            'Cor' => $this->getCor(),
-            'Ano de Fabricação' => $this->getAnoFabricacao(),
-            'Anos de Uso' => $this->getAnosUso(),
-            'Km(s) Rodados' => $this->getKmRodados(),
-            'Km(s) p/ Ano' => $this->getKmAno(),
-            'Pagar IPVA' => $this->getIpva()
+            'modelo' => $this->getModelo(),
+            'cor' => $this->getCor(),
+            'ano_de_fabricacao' => $this->getAnoFabricacao(),
+            'anos_de_uso' => $this->getAnosUso(),
+            'kms_rodados' => $this->getKmRodados(),
+            'kms_por_ano' => $this->getKmAno(),
+            'ipva' => $this->getIpva()
         ];
 
     }   
