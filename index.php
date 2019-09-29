@@ -18,15 +18,15 @@
                 <form class="formulario" id="formulario">
                     <div class="form-group">
                         <label class="col-md-2 d-none">Modelo </label>
-                        <input type="text" name="modelo" class="form-control campo col-md-10" placeholder="Modelo" min="2" max="16" autofocus required>
+                        <input type="text" name="modelo" class="form-control campo col-md-12" placeholder="Modelo" min="2" max="16" autofocus required>
                     </div>
                     <div class="form-group">
                         <label class="col-md-2 d-none">Cor </label>
-                        <input type="text" name="cor" class="form-control campo col-md-10" placeholder="Cor" min="2" max="16" required>
+                        <input type="text" name="cor" class="form-control campo col-md-12" placeholder="Cor" min="2" max="16" required>
                     </div>
                     <div class="form-group">
                         <label class="col-md-2 d-none">Ano </label>
-                        <select name="ano" class="form-control campo col-md-10" required>
+                        <select name="ano" class="form-control campo col-md-12" required>
 
                             <option>Ano</option>
                             <option value="2019">2019</option>
@@ -78,9 +78,9 @@
                     </div>
                     <div class="form-group">
                         <label class="col-md-2 d-none">Km's </label>
-                        <input type="text" name="km" class="form-control campo col-md-10" placeholder="Km's" required min="1" max="9">
+                        <input type="text" name="km" class="form-control campo col-12" placeholder="Km's" required min="1" max="9">
                     </div>
-                    <button type="submit" class="btn btn-primary d-block mx-auto">Enviar</button>           
+                    <button type="submit" class="btn btn-primary d-block mx-auto" style="margin-top:32px;">Enviar</button>           
                 </form>
             </div>
             <div class="col-md-3"></div>
@@ -108,7 +108,14 @@
             list.className = 'list-group mt-2';
             list.id = 'lista';
             carro = JSON.parse(response);
+
+            $('input[name="modelo"]').val('')
+            $('input[name="cor"]').val('')
+            $('select[name="ano"]').val('')
+            $('input[name="km"]').val('')
+
             box = document.getElementsByClassName('box')[0];
+            $('#formulario').hide()
             box.appendChild(list)
             document.getElementById('lista').innerHTML += '<li class="list-group-item">Modelo: '+carro['modelo']+'</li>';
             document.getElementById('lista').innerHTML += '<li class="list-group-item">Cor: '+carro['cor']+'</li>';
